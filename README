@@ -1,0 +1,7 @@
+LaravelCP is back once again. This time learning from my past mistakes I will try to provide a better base example.
+
+From day one we will be creating this as a seperate package, utilizing all of Larvels features without editing it directly.
+
+The goal, once again, is for a completly Modular software with different packages you can inject, like our 'l4cp-support' package last year.
+
+Stay tuned on asked.io for tutorials that will go along with the development of this project.

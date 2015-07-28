@@ -1,0 +1,8 @@
+{
+    "name": "askedio/Laravelcp",
+    "autoload": {
+        "psr-4": {
+            "Askedio\\Laravelcp\\": "src/"
+        }
+    }
+}
