@@ -1,5 +1,5 @@
 {
-    "name": "askedio/Laravelcp",
+    "name": "askedio/laravelcp",
     "autoload": {
         "psr-4": {
             "Askedio\\Laravelcp\\": "src/"
