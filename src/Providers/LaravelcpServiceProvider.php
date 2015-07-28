@@ -32,6 +32,7 @@ class LaravelcpServiceProvider extends ServiceProvider
   public function boot()
   {
 		Lang::addNamespace('LaravelCP', realpath(__DIR__.'/../Resources/Lang'));
+    parent::boot($router);
   }
 
 	/**
