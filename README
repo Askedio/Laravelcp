@@ -5,3 +5,14 @@ From day one we will be creating this as a seperate package, utilizing all of La
 The goal, once again, is for a completly Modular software with different packages you can inject, like our 'l4cp-support' package last year.
 
 Stay tuned on asked.io for tutorials that will go along with the development of this project.
+
+Add to composer.json required
+         "askedio/laravelcp": "dev-master"
+
+Register with config/app.php
+         Askedio\Laravelcp\Providers\LaravelcpServiceProvider::class,
+
+Test
+         php artisan serv
+
+Browse to http://localhost:8000/test
