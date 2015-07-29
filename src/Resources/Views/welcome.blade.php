@@ -1,45 +1,115 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('lcp::layouts.master')
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title', 'Dashbioard')
+@section('app-name', 'My App')
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('content')
+    <p>This is my body content.</p>
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('after')
+    @parent
+     This page took {{ (microtime(true) - LARAVEL_START) }} seconds to render
+@endsection
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+@section('keywords', '')
+@section('author', '')
+@section('description', '')@endsection
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">{{ trans('lcp::messages.welcome') }}</div>
-            </div>
-        </div>
-    </body>
-</html>
+@section('styles')
+
+@endsection
+
+@section('head')
+
+@endsection
+
+@section('header')
+
+@endsection
+
+@section('before')
+    @parent
+
+@endsection
+
+@section('side-menu')
+    @parent
+
+@endsection
+
+@section('sidebar')
+
+@endsection
+
+@section('page-wrapper')
+    @parent
+
+@endsection
+
+@section('after')
+    @parent
+
+@endsection
+
+@section('footer')
+
+@endsection
+
+@section('scripts')
+
+@endsection
+
+@section('navbar-right')
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-messages">
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                        <em>Yesterday</em>
+                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                        <em>Yesterday</em>
+                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="#">
+                <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                        <em>Yesterday</em>
+                    </span>
+                </div>
+                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a class="text-center" href="#">
+                <strong>Read All Messages</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- /.dropdown-messages -->
+</li>
+@endsection

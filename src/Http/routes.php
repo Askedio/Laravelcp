@@ -12,4 +12,4 @@
 */
 
 
-Route::resource('test', 'Askedio\Laravelcp\Http\Controllers\HomeController');
+Route::resource('dashboard', 'Askedio\Laravelcp\Http\Controllers\HomeController');

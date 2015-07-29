@@ -17,6 +17,8 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
   public function register()
   {
+		App::register('Collective\Html\HtmlServiceProvider');
+
   }
 
   /**
@@ -26,6 +28,11 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+
+    $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+    $loader->alias('Html', 'Collective\Html\HtmlFacade');
+    $loader->alias('Form', 'Collective\Html\FormFacade');
+
 
     if (! $this->app->routesAreCached()) {
       require realpath(__DIR__.'/../Http/routes.php');
