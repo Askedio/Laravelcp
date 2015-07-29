@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+Askedio\Laravelcp\Events;
 
 abstract class Event
 {

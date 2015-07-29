@@ -1,4 +1,5 @@
 <?php
+
 namespace Askedio\Laravelcp\Providers;
 
 use App;
