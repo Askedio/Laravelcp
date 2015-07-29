@@ -11,8 +11,5 @@
 |
 */
 
-Route::group(['prefix' => 'test'], function() {
-	Route::get('/', function() {
-		dd('This is the Blog module index page.');
-	});
-});
+
+Route::resource('test', 'Askedio\Laravelcp\Http\Controllers\HomeController');
