@@ -11,6 +11,7 @@ The install directions are how-to install this as my vendor package. Ideally you
 * Clone the repo
 * Rename Askedio/Laravelcp & askedio/laravelcp stuff to your namespace (search & replace all files)
 * Rename files to match
+* Rename shortucts for configs, lang, etc, they are "lcp::", so replace "lcp" in the alias loaders
 * Add to a github repo
 * Add to packagist.org
 * Install with commands like below, but with your names and revisions
