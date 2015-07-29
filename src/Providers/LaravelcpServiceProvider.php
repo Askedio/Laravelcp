@@ -9,39 +9,50 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelcpServiceProvider extends ServiceProvider
 {
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
-	public function register()
-	{
-		// This service provider is a convenient place to register your modules
-		// services in the IoC container. If you wish, you may make additional
-		// methods or service providers to keep the code more focused and granular.
-		App::register('Askedio\Laravelcp\Providers\RouteServiceProvider');
-
-		$this->registerNamespaces();
-	}
-
-	/**
-	 * Register the resource namespaces.
-	 *
-	 * @return void
-	 */
-  public function boot()
+  /**
+   * Register the service provider.
+   *
+   * @return void
+   */
+  public function register()
   {
-		Lang::addNamespace('LaravelCP', realpath(__DIR__.'/../Resources/Lang'));
-    parent::boot($router);
   }
 
-	/**
-	 * Register the resource namespaces.
-	 *
-	 * @return void
-	 */
-	protected function registerNamespaces()
-	{
-	  View::addNamespace('LaravelCP', realpath(__DIR__.'/../Resources/Views'));
-	}
+  /**
+   * Register routes, translations, views and publishers.
+   *
+   * @return void
+   */
+  public function boot()
+  {
+
+    if (! $this->app->routesAreCached()) {
+      require realpath(__DIR__.'/../Http/routes.php');
+    }
+
+    $this->loadTranslationsFrom(realpath(__DIR__.'/../Resources/Lang'), 'lcp');
+
+    $this->loadViewsFrom(realpath(__DIR__.'/../Resources/Views'), 'lcp');
+
+    $this->publishes([
+      realpath(__DIR__.'/../Resources/Views') => base_path('resources/views/vendor/askedio/laravelcp'),
+    ], 'views');
+
+    $this->publishes([
+      realpath(__DIR__.'/../Resources/Assets') => public_path('assets'),
+    ], 'public');
+
+    $this->publishes([
+      realpath(__DIR__.'/../Resources/Config') => config_path('')
+    ], 'config');
+
+    $this->publishes([
+      realpath(__DIR__.'/../Database/Migrations') => database_path('migrations')
+    ], 'migrations');
+
+    $this->publishes([
+      realpath(__DIR__.'/../Database/Seeds') => database_path('seeds')
+    ], 'seeds');
+
+  }
 }
