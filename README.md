@@ -9,7 +9,7 @@ This provides nearly all features of Laravel in your vendor package. You create 
 The install directions are how-to install this as my vendor package. Ideally you'll be cloning this and renaming it. I've not done this so I do not have the actual steps but it's like
 
 * Clone the repo
-* Rename Askedio/Laravelcp & askedio/laravelcp stuff to your name space
+* Rename Askedio/Laravelcp & askedio/laravelcp stuff to your namespace (search & replace all files)
 * Rename files to match
 * Add to a github repo
 * Add to packagist.org
