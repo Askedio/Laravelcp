@@ -29,7 +29,7 @@ The install directions are how-to install this as my vendor package. Ideally you
 
     php artisan serv
 
-Browse to http://localhost:8000/test
+Browse to http://localhost:8000/dashboard
 
 ## Publish
         php artisan vendor:publish 
