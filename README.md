@@ -1,30 +1,22 @@
-# LaravelCP is back once again. 
-## This time learning from my past mistakes.
-
-From day one we will be creating this as a seperate package, utilizing all of Larvels features without editing it directly.
-
-The goal, once again, is for a completly Modular software with different packages you can inject, like our 'l4cp-support' package last year.
-
-Check the branches. I will post in stages, Stage 1 will be the base vendor package to build as a core to any additional Modules.
-
-Stay tuned on asked.io for tutorials that will go along with the development of this project.
-
-# Login System
-![ScreenShot](http://i.imgur.com/NKBbdLz.png)
-![ScreenShot](http://i.imgur.com/IIJljj4.png)
-![ScreenShot](http://i.imgur.com/kyrGV5G.png)
-
+# LaravelCP v2
+## A Modular/Packaged based Control Panel for Laravel
+Features:
+* Laravel 5.1
+* Bootstrap 3
+* jQuery 2
+* RBAC
+* User auth
 
 
 # Installation
-## Add to composer.json
- 
-    "askedio/laravelcp": "dev-master",
-
-## Or
-
-    composer require askedio/laravelcp
-
+    composer create-project laravel/laravel your-project-name --prefer-dist
+    cd your-project-name
+    #configure database in .env
+    composer require "askedio/laravelcp:dev-master"
+    #append to providers array - Askedio\Laravelcp\Providers\LaravelcpServiceProvider::class,
+    php artisan vendor:publish 
+    composer dump-autoload
+    php artisan db:seed --class=UserTableSeeder
 
 ## Register with config/app.php
 
@@ -34,22 +26,27 @@ Stay tuned on asked.io for tutorials that will go along with the development of 
 
     php artisan serv
 
-Browse to http://localhost:8000/test
+Default login is:
+    admin@localhost
+    password
+    
+# Provides:
+* http://localhost:8000/dashboard
+* http://localhost:8000/auth/login
+* http://localhost:8000/auth/logout
+* http://localhost:8000/auth/register
+* http://localhost:8000/password/email
 
-## Publish
-        php artisan vendor:publish 
-## Migrate
-        php artisan migrate
-## Seed
-        php artisan db:seed 
 
-# Using this package
-You can use the 'base' version to rapidly develop vendor/composer based packages. Clone the git repo, rename it, rename the namespaces, and off you go! Now all of your Laravel code will be in your own vendor module :D
+
+
+# Screenshots
+![ScreenShot](http://i.imgur.com/NKBbdLz.png)
+![ScreenShot](http://i.imgur.com/IIJljj4.png)
+![ScreenShot](http://i.imgur.com/kyrGV5G.png)
+![ScreenShot](http://i.imgur.com/hklO2Xf.png)
 
 # Developing notes
-I like to develop in vendor, if you don't - who cares? It's a personal prefrence, my goal is to not change Laravel at all, not even the composer. These notes are for me to have a quick refrence for creating new features within the correct path.
-
-
 ## Create Migration
 php artisan make:migration test --path="vendor\askedio\laravelcp\src\Database\Migrations"
 
