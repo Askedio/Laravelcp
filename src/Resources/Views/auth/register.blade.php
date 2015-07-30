@@ -3,46 +3,51 @@
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-4 col-sm-offset-4">
-      <h2>Register</h2>
+		<div class="col-sm-4 col-sm-offset-4 mt40">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ trans('lcp::auth.register') }}</h3>
+          </div>
+          <div class="panel-body">
+            <form method="post" action="{{ url('/auth/register') }}">
+              {!! csrf_field() !!}
 
-      <form method="post" action="{{ url('/auth/register') }}">
-        {!! csrf_field() !!}
+              <div class="form-group">
+                <label for="exampleInputName1">{{ trans('lcp::default.name') }}</label>
+                <input type="text" class="form-control" id="exampleInputName1" name="name" value="{{ old('name') }}" required>
+              </div>
 
-        <div class="form-group">
-          <label for="exampleInputName1">Name</label>
-          <input type="text" class="form-control" id="exampleInputName1" placeholder="" name="name" value="{{ old('name') }}" required>
-        </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">{{ trans('lcp::default.email_address') }}</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ old('email') }}" required>
+              </div>
 
-        <div class="form-group">
-          <label for="exampleInputEmail1">E-mail address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="" name="email" value="{{ old('email') }}" required>
-        </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">{{ trans('lcp::default.password') }}</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+              </div>
 
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="password" required>
-        </div>
+              <div class="form-group">
+                <label for="exampleInputPassword2">{{ trans('lcp::auth.confirm') }} {{ trans('lcp::default.password') }}</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="password_confirmation" required>
+              </div>
 
-        <div class="form-group">
-          <label for="exampleInputPassword2">Confirm Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword2" placeholder="" name="password_confirmation" required>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">{{ trans('lcp::auth.register') }}</button>
+              </div>
+            </form>
+            @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                {!! trans('lcp::auth.error') !!}<br><br>
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
         </div>
-
-        <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        </div>
-      </form>
-      @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <strong>Whoops!</strong> There were some problems with your input.<br><br>
-          <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-      @endif
+      </div>
     </div>
   </div>
 </div>

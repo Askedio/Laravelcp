@@ -81,15 +81,15 @@ class AuthController extends Controller
      *
      * @return View
      */
-     public function getRegister()
+    public function getRegister()
     {
         return view('lcp::auth.register');
     }
 
-   /* public function getLogout()
+    public function getLogout()
     {
        \Auth::logout();
-        return redirect('/logout');
-    }*/
+        return redirect('/dashboard');
+    }
 
 }
