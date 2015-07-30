@@ -37,7 +37,8 @@ class VerifyRole
             return $next($request);
         }
 
-       return view('lcp::auth.errors.role')->withError($role);
-
+       return $this->auth->check() ?
+         view('lcp::auth.errors.role')->withError($role) : 
+         view('lcp::auth.login');
     }
 }

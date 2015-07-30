@@ -2,5 +2,5 @@
 
 return [
     'welcome' => 'LaravelCP 2',
-    'toggle_nav' => 'Toggle navigation'
+    'toggle_nav' => 'Toggle navigation',
 ];

@@ -36,3 +36,7 @@ Route::get('auth/logout', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthControlle
 
 Route::get('auth/register', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@getRegister');
 Route::post('auth/register', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@postRegister');
+
+Route::controllers([
+   'password' => 'Askedio\Laravelcp\Http\Controllers\Auth\PasswordController',
+]);

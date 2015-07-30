@@ -2,7 +2,7 @@
 
 namespace Askedio\Laravelcp\Http\Controllers\Auth;
 
-use App\User;
+use Askedio\Laravelcp\Models\User;
 use Validator;
 use Askedio\Laravelcp\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -73,6 +73,17 @@ class AuthController extends Controller
     public function getLogin()
     {
         return view('lcp::auth.login');
+    }
+ 
+     
+     /**
+     * Override default getRegister to view our template
+     *
+     * @return View
+     */
+     public function getRegister()
+    {
+        return view('lcp::auth.register');
     }
 
    /* public function getLogout()

@@ -49,6 +49,11 @@ public function boot(\Illuminate\Routing\Router $router)
     $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
 
     Config::set('auth.model', 'Askedio\Laravelcp\Models\User');
+    Config::set('auth.password.email', 'lcp::auth.password');
+
+   
+
+
 
 
     if (! $this->app->routesAreCached()) {

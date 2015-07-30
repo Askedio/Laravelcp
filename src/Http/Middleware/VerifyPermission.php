@@ -37,6 +37,8 @@ class VerifyPermission
             return $next($request);
         }
 
-       return view('lcp::auth.errors.permission')->withError($permission);
+       return $this->auth->check() ?
+         view('lcp::auth.errors.permission')->withError($permission) : 
+         view('lcp::auth.login');
     }
 }
