@@ -14,14 +14,6 @@ class HomeController extends Controller
 		    //dd('Hello World, index :D');
 
 
-$adminRole = Role::create([
-    'name' => 'Admin',
-    'slug' => 'admin',
-    'description' => '', // optional
-    'parent_id' => NULL, // optional, set to NULL by default
-]);
-
-
         return view('lcp::welcome');
     }
 

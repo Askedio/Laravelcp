@@ -12,4 +12,11 @@
 */
 
 
+Route::get('/roletest', [
+    'as' => 'roletest',
+    'middleware' => 'role:admin',
+    'uses' => 'Askedio\Laravelcp\Http\Controllers\HomeController@index',
+]);
+
+
 Route::resource('dashboard', 'Askedio\Laravelcp\Http\Controllers\HomeController');

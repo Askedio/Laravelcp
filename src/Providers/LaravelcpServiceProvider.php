@@ -28,9 +28,14 @@ class LaravelcpServiceProvider extends ServiceProvider
    *
    * @return void
    */
-  public function boot()
+public function boot(\Illuminate\Routing\Router $router)
   {
 
+    $router->middleware('auth', 'Askedio\Laravelcp\Http\Middleware\Authenticate');
+    $router->middleware('auth.basic', 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth');
+    $router->middleware('guest', 'Askedio\Laravelcp\Http\Middleware\RedirectIfAuthenticated');
+    $router->middleware('role', 'Askedio\Laravelcp\Http\Middleware\VerifyRole');
+    $router->middleware('permission', 'Askedio\Laravelcp\Http\Middleware\VerifyPermission');
 
     $loader = \Illuminate\Foundation\AliasLoader::getInstance();
     $loader->alias('Html', 'Collective\Html\HtmlFacade');
