@@ -7,6 +7,7 @@ use Config;
 use Lang;
 use View;
 use Illuminate\Support\ServiceProvider;
+use Askedio\Laravelcp\Helpers\NavigationHelper;
 
 class LaravelcpServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
   public function register()
   {
-		App::register('Collective\Html\HtmlServiceProvider');
+    App::register('Collective\Html\HtmlServiceProvider');
 
   }
 
@@ -29,9 +30,11 @@ class LaravelcpServiceProvider extends ServiceProvider
   public function boot()
   {
 
+
     $loader = \Illuminate\Foundation\AliasLoader::getInstance();
     $loader->alias('Html', 'Collective\Html\HtmlFacade');
     $loader->alias('Form', 'Collective\Html\FormFacade');
+    $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
 
 
     if (! $this->app->routesAreCached()) {
@@ -41,6 +44,9 @@ class LaravelcpServiceProvider extends ServiceProvider
     $this->loadTranslationsFrom(realpath(__DIR__.'/../Resources/Lang'), 'lcp');
 
     $this->loadViewsFrom(realpath(__DIR__.'/../Resources/Views'), 'lcp');
+
+    NavigationHelper::Add(['nav' => 'main', 'sort' => '0',  'link' => url('/dashboard'), 'title' => trans('lcp::nav.dashboard'), 'icon' => 'fa-dashboard']);
+
 
     $this->publishes([
       realpath(__DIR__.'/../Resources/Views') => base_path('resources/views/vendor/askedio/laravelcp'),

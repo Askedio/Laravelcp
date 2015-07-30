@@ -4,7 +4,8 @@
 @section('app-name', 'My App')
 
 @section('content')
-    <p>This is my body content.</p>
+    <p>Thqqis is my body content.</p>
+
 @endsection
 
 @section('after')

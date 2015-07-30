@@ -50,9 +50,6 @@
                 <div class="sidebar-nav navbar-collapse">
                   @section('side-menu')
                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="{!! url('/dashboard') !!}"><i class="fa fa-dashboard fa-fw"></i> {{ trans('lcp::nav.dashboard') }}</a>
-                        </li>
                         @include('lcp::layouts.partials.side-menu')
                   </ul>
                   @show
@@ -65,7 +62,7 @@
              @section('page-wrapper')
                <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">{{ trans('lcp::nav.dashboard') }}</h1>
+                        <h1 class="page-header">@yield('page-header', trans('lcp::nav.dashboard'))</h1>
                     </div>
                 </div>
             @show
