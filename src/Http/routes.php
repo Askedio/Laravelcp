@@ -11,14 +11,12 @@
 |
 */
 
-
 /*
  Admin Route Group, All Routes in here will require Admin roles.
 */
 Route::group([
     'as' => 'dashboard',
     'middleware' => 'role:admin',
-    'uses' => 'Askedio\Laravelcp\Http\Controllers\HomeController',
   ],
   function () {
 

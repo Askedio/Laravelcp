@@ -3,10 +3,9 @@
 namespace Askedio\Laravelcp\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Routing\Controller as Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Askedio\Laravelcp\Models\Role;
-use Askedio\Laravelcp\Http\Controllers;
+use Askedio\Laravelcp\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
