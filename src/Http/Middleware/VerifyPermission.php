@@ -4,7 +4,6 @@ namespace Askedio\Laravelcp\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-use Askedio\Laravelcp\Exceptions\PermissionDeniedException;
 
 class VerifyPermission
 {
@@ -30,8 +29,7 @@ class VerifyPermission
      * @param \Illuminate\Http\Request $request
      * @param \Closure $next
      * @param int|string $permission
-     * @return mixed
-     * @throws \Askedio\Laravelcp\Exceptions\PermissionDeniedException
+     * @return view
      */
     public function handle($request, Closure $next, $permission)
     {
@@ -39,6 +37,6 @@ class VerifyPermission
             return $next($request);
         }
 
-        throw new PermissionDeniedException($permission);
+       return view('lcp::auth.errors.permission')->withError($permission);
     }
 }

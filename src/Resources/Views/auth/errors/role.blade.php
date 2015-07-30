@@ -1,0 +1,1 @@
+<h1>Whoops, missing role {{ $error }}</h1>

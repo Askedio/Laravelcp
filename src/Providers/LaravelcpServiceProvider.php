@@ -23,6 +23,9 @@ class LaravelcpServiceProvider extends ServiceProvider
 
   }
 
+
+
+
   /**
    * Register routes, translations, views and publishers.
    *
@@ -30,6 +33,9 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
 public function boot(\Illuminate\Routing\Router $router)
   {
+
+
+
 
     $router->middleware('auth', 'Askedio\Laravelcp\Http\Middleware\Authenticate');
     $router->middleware('auth.basic', 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth');
@@ -41,6 +47,8 @@ public function boot(\Illuminate\Routing\Router $router)
     $loader->alias('Html', 'Collective\Html\HtmlFacade');
     $loader->alias('Form', 'Collective\Html\FormFacade');
     $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
+
+    Config::set('auth.model', 'Askedio\Laravelcp\Models\User');
 
 
     if (! $this->app->routesAreCached()) {

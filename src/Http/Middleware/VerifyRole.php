@@ -4,7 +4,6 @@ namespace Askedio\Laravelcp\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
-use Askedio\Laravelcp\Exceptions\RoleDeniedException;
 
 class VerifyRole
 {
@@ -30,8 +29,7 @@ class VerifyRole
      * @param \Illuminate\Http\Request $request
      * @param \Closure $next
      * @param int|string $role
-     * @return mixed
-     * @throws \Askedio\Laravelcp\Exceptions\RoleDeniedException
+     * @return view
      */
     public function handle($request, Closure $next, $role)
     {
@@ -39,6 +37,7 @@ class VerifyRole
             return $next($request);
         }
 
-        throw new RoleDeniedException($role);
+       return view('lcp::auth.errors.role')->withError($role);
+
     }
 }

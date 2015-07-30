@@ -12,11 +12,27 @@
 */
 
 
-Route::get('/roletest', [
-    'as' => 'roletest',
+/*
+ Admin Route Group, All Routes in here will require Admin roles.
+*/
+Route::group([
+    'as' => 'dashboard',
     'middleware' => 'role:admin',
-    'uses' => 'Askedio\Laravelcp\Http\Controllers\HomeController@index',
-]);
+    'uses' => 'Askedio\Laravelcp\Http\Controllers\HomeController',
+  ],
+  function () {
+
+    Route::resource('dashboard', 'Askedio\Laravelcp\Http\Controllers\HomeController');
+
+  }
+);
 
 
-Route::resource('dashboard', 'Askedio\Laravelcp\Http\Controllers\HomeController');
+
+Route::get('auth/login', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@getLogin');
+Route::post('auth/login', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@getLogout');
+
+
+Route::get('auth/register', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@getRegister');
+Route::post('auth/register', 'Askedio\Laravelcp\Http\Controllers\Auth\AuthController@postRegister');
