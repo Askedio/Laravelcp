@@ -79,11 +79,11 @@ public function boot(\Illuminate\Routing\Router $router)
     ], 'config');
 
     $this->publishes([
-      realpath(__DIR__.'/../Resources/Migrations') => database_path('migrations')
+      realpath(__DIR__.'/../Database/Migrations') => database_path('migrations')
     ], 'migrations');
 
     $this->publishes([
-      realpath(__DIR__.'/../Resources/Seeds') => database_path('seeds')
+      realpath(__DIR__.'/../Database/Seeds') => database_path('seeds')
     ], 'seeds');
 
   }
