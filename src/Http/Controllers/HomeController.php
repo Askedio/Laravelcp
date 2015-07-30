@@ -5,6 +5,7 @@ namespace Askedio\Laravelcp\Http\Controllers;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Askedio\Laravelcp\Models\Role;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,13 @@ class HomeController extends Controller
     {
 		    //dd('Hello World, index :D');
 
+
+$adminRole = Role::create([
+    'name' => 'Admin',
+    'slug' => 'admin',
+    'description' => '', // optional
+    'parent_id' => NULL, // optional, set to NULL by default
+]);
 
 
         return view('lcp::welcome');
