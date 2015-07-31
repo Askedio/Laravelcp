@@ -9,6 +9,7 @@ use View;
 use Illuminate\Support\ServiceProvider;
 use Askedio\Laravelcp\Helpers\NavigationHelper;
 use Askedio\Laravelcp\Helpers\HookHelper;
+use Askedio\Laravelcp\Helpers\SearchHelper;
 
 class LaravelcpServiceProvider extends ServiceProvider
 {
@@ -51,11 +52,12 @@ public function boot(\Illuminate\Routing\Router $router)
     $loader->alias('Form', 'Collective\Html\FormFacade');
     $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
     $loader->alias('Hook', 'Askedio\Laravelcp\Helpers\HookHelper');
+    $loader->alias('Search', 'Askedio\Laravelcp\Helpers\SearchHelper');
 
    
     NavigationHelper::Initialize();
     HookHelper::Initialize();
-
+    SearchHelper::Initialize();
 
     if (! $this->app->routesAreCached()) {
       require realpath(__DIR__.'/../Http/routes.php');
@@ -65,8 +67,8 @@ public function boot(\Illuminate\Routing\Router $router)
 
     $this->loadViewsFrom(realpath(__DIR__.'/../Resources/Views'), 'lcp');
 
-    NavigationHelper::Add(['nav' => 'main', 'sort' => '0',  'link' => url('/dashboard'), 'title' => trans('lcp::nav.dashboard'), 'icon' => 'fa-dashboard']);
 
+    NavigationHelper::Add(['nav' => 'main', 'sort' => '0',  'link' => url('/dashboard'), 'title' => trans('lcp::nav.dashboard'), 'icon' => 'fa-dashboard']);
 
     $this->publishes([
       realpath(__DIR__.'/../Resources/Views') => base_path('resources/views/vendor/askedio/laravelcp'),

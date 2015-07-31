@@ -6,44 +6,21 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Askedio\Laravelcp\Models\Role;
 use Askedio\Laravelcp\Http\Controllers\Controller;
+use Askedio\Laravelcp\Helpers\SearchHelper;
 
 class HomeController extends Controller
 {
     public function index()
     {
-		    //dd('Hello World, index :D');
-
-
         return view('lcp::dashboard');
     }
 
-    public function create()
-    {
-		    dd('Hello World, create :D');
-    }
 
-    public function store()
+    public function show($page, \Request $request)
+      
     {
-		    dd('Hello World, store :D');
-    }
-
-    public function show()
-    {
-		    dd('Hello World, show :D');
-    }
-
-    public function edit()
-    {
-		    dd('Hello World, edit :D');
-    }
-
-    public function update()
-    {
-		    dd('Hello World, update :D');
-    }
-
-    public function destroy()
-    {
-		    dd('Hello World, destroy :D');
+      if($page == 'search'){
+         return \Response::json(SearchHelper::Query(\Input::get('q')));
+      }
     }
 }
