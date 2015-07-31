@@ -14,7 +14,7 @@ class HomeController extends Controller
 		    //dd('Hello World, index :D');
 
 
-        return view('lcp::welcome');
+        return view('lcp::dashboard');
     }
 
     public function create()

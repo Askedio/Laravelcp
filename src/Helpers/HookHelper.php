@@ -2,15 +2,17 @@
 
 namespace Askedio\Laravelcp\Helpers;
 
-class NavigationHelper{
-	static public $nav;
+class HookHelper{
+	static public $dash;
 
   public static function Initialize(){
-    if(!self::$nav) self::$nav=collect();
+    if(!self::$dash) self::$dash=collect();
   }
 
   public static function Add($data){
-    self::$nav->push($data);
+    self::$dash->push($data);
   }
+
+ 
 
 }

@@ -8,6 +8,7 @@ use Lang;
 use View;
 use Illuminate\Support\ServiceProvider;
 use Askedio\Laravelcp\Helpers\NavigationHelper;
+use Askedio\Laravelcp\Helpers\HookHelper;
 
 class LaravelcpServiceProvider extends ServiceProvider
 {
@@ -49,10 +50,11 @@ public function boot(\Illuminate\Routing\Router $router)
     $loader->alias('Html', 'Collective\Html\HtmlFacade');
     $loader->alias('Form', 'Collective\Html\FormFacade');
     $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
+    $loader->alias('Hook', 'Askedio\Laravelcp\Helpers\HookHelper');
 
    
-
-
+    NavigationHelper::Initialize();
+    HookHelper::Initialize();
 
 
     if (! $this->app->routesAreCached()) {
