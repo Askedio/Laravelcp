@@ -13,12 +13,11 @@
 
     <title>@yield('title', trans('lcp::app.title'))</title>
 
-    {!! Html::style('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css') !!}
-    {!! Html::style('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css') !!}
-    {!! Html::style('assets/css/app.css') !!}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{!! url('/assets/css/app.css') !!}">
     @yield('styles')
     @yield('head')
-
 </head>
 <body>
     @section('header')
@@ -30,9 +29,9 @@
     @section('footer')
     @show
 
-  {!! Html::script('//code.jquery.com/jquery-2.1.4.min.js') !!}
-  {!! Html::script('//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') !!}
-  {!! Html::script('assets/js/app.js') !!}
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="{!! url('/assets/js/app.js') !!}"></script>
   @yield('scripts')
 </body>
 </html>

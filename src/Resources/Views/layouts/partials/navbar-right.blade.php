@@ -1,3 +1,4 @@
+<li><a href="#search" class="nav-search"><i class="fa fa-search"></i></a></li>
 <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -8,7 +9,6 @@
                <i class="fa fa-sign-out"></i> Logout
             </a>
         </li>
-        
     </ul>
     <!-- /.dropdown-messages -->
 </li>

@@ -20,7 +20,7 @@ class HomeController extends Controller
       
     {
       if($page == 'search'){
-         return \Response::json(SearchHelper::Query(\Input::get('q')));
+         return view('lcp::search')->withResults(SearchHelper::Query(\Input::get('q')));
       }
     }
 }

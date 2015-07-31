@@ -79,5 +79,8 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="{!! url('/assets/js/app.js') !!}"></script>
   @yield('scripts')
+  @section('modals')
+    @include('lcp::layouts.partials.modals')
+  @show
 </body>
 </html>

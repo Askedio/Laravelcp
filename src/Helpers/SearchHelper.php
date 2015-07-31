@@ -25,7 +25,7 @@ class SearchHelper{
         $i++;
       }
 
-      $results[$data['var']] = $query->count() > 0 ? $query->get() : false;
+      $query->count() > 0 ? $results[$data['var']] =  array_merge($data, ['results' => $query->get()->toArray()]) : null;
       return $results;
     }
   }

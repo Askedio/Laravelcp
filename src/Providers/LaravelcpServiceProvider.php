@@ -20,9 +20,7 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
   public function register()
   {
-    App::register('Collective\Html\HtmlServiceProvider');
     App::register('Askedio\Laravelcp\Providers\RBACServiceProvider');
-
   }
 
 
@@ -48,8 +46,6 @@ public function boot(\Illuminate\Routing\Router $router)
     $router->middleware('permission', 'Askedio\Laravelcp\Http\Middleware\VerifyPermission');
 
     $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-    $loader->alias('Html', 'Collective\Html\HtmlFacade');
-    $loader->alias('Form', 'Collective\Html\FormFacade');
     $loader->alias('Nav', 'Askedio\Laravelcp\Helpers\NavigationHelper');
     $loader->alias('Hook', 'Askedio\Laravelcp\Helpers\HookHelper');
     $loader->alias('Search', 'Askedio\Laravelcp\Helpers\SearchHelper');
