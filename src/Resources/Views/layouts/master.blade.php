@@ -16,17 +16,22 @@
     <link rel="stylesheet" href="{!! url('/assets/css/app.css') !!}">
     @yield('styles')
     @yield('head')
+    <script>
+      var LNG_ARE_YOU_SURE = "{{ trans('lcp::default.areyousure') }}";
+    </script>
 </head>
 
 <body>
     @section('header')
     @show
 
+    @section('wrapper')
     <div id="wrapper">
         @section('before')
           @include('lcp::layouts.partials.before')
         @show
 
+       @section('navbar-static-top')
         <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,11 +43,14 @@
                 <a class="navbar-brand" href="{!! url('/dashboard') !!}">@yield('app-name', trans('lcp::app.name'))</a>
             </div>
 
+            @section('navbar-top-links')
             <ul class="nav navbar-top-links navbar-right">
               @include('lcp::layouts.partials.navbar-right')
               @yield('navbar-right')
             </ul>
+            @show
 
+            @section('navbar-default')
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                   @section('side-menu')
@@ -53,25 +61,35 @@
                   @yield('sidebar')
                 </div>
             </div>
-        </nav>
-
-        <div id="page-wrapper">
-             @section('page-wrapper')
-               <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">@yield('page-header', trans('lcp::nav.dashboard'))</h1>
-                    </div>
-                </div>
             @show
+        </nav>
+        @show
 
-            @yield('content')
+        @section('page-wrapper-wrap')
+        <div id="page-wrapper">
+         @section('page-wrapper')
+
+           <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                      @yield('page-header', trans('lcp::nav.dashboard'))
+                      @yield('page-header-right')
+                    </h1>
+                </div>
+            </div>
+          @show
+
+           @include('lcp::layouts.partials.notifications')
+          @yield('content')
         </div>
+        @show
 
         @section('after')
           @include('lcp::layouts.partials.after')
         @show
-
     </div>
+    @show
+
     @section('footer')
     @show
 

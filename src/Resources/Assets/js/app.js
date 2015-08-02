@@ -31,7 +31,18 @@ $(function() {
 	$(document).on('click','a',function(a){if($(this).attr('href')=='#'){return false}});
 	$(document).on('click','.modalfy',function(a){a.preventDefault();modalfyRun(this,$(this).attr('href'))});
 
+	$('.delete').click(function(e) {
+		e.preventDefault();
+		if(confirm(LNG_ARE_YOU_SURE)) {
+		  $('<form method="POST" style="display:none"><input type="hidden" name="_method" value="DELETE" /><input type="hidden" name="_token" value="'+ $('meta[name="csrf-token"]').attr("content") +'"></form>')
+			.insertAfter($(this))
+			.attr({
+			  action: $(this).attr('href')
+			}).submit();
+		}
+	});
 
 });
-	function modalfyRun(e,t){$.ajax({type:"GET",url:t}).done(function(e){if(e){$("#site-modal").html(e).modal({backdrop:'static'})}else{console.log(e);bootbox.alert(lang_unable_to_exec)}}).fail(function(e,t){console.log(e);bootbox.alert(lang_unable_to_exec+t)})}
-	function throttle(b,a){var c=null;return function(){var e=this,d=arguments;clearTimeout(c);c=window.setTimeout(function(){b.apply(e,d)},a||500)}};
+
+function modalfyRun(e,t){$.ajax({type:"GET",url:t}).done(function(e){if(e){$("#site-modal").html(e).modal({backdrop:'static'})}else{console.log(e);bootbox.alert(lang_unable_to_exec)}}).fail(function(e,t){console.log(e);bootbox.alert(lang_unable_to_exec+t)})}
+function throttle(b,a){var c=null;return function(){var e=this,d=arguments;clearTimeout(c);c=window.setTimeout(function(){b.apply(e,d)},a||500)}};
